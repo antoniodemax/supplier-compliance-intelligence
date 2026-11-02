@@ -15,7 +15,8 @@ supplier-compliance-intelligence/
 │   └── Supplier_Compliance_Intelligence.xlsx   # local source workbook — READ-ONLY, not committed
 ├── notebooks/
 │   ├── 01_validation_and_kpis.ipynb               # data validation + KPI reconciliation
-│   └── 02_sensitivity_analysis_recovered.ipynb   # read-only audit of sensitivity exports
+│   ├── 02_sensitivity_analysis.ipynb              # primary Phase 1 sensitivity analysis
+│   └── 02_sensitivity_analysis_recovered.ipynb   # supplementary CSV-only audit
 ├── docs/
 │   ├── data_validation_and_kpi_reconciliation.md  # plain-language results
 │   └── tableau_handoff.md                      # data model + calculated fields for Tableau
@@ -29,8 +30,8 @@ supplier-compliance-intelligence/
 
 The supplied workbook is labelled simulated educational data, but it is assignment-provided source material and
 is intentionally excluded from Git. Keep it at `data/Supplier_Compliance_Intelligence.xlsx` locally; do not
-commit or redistribute it. The malformed legacy file `notebooks/02_sensitivity_analysis.ipynb` is preserved
-locally and excluded from Git. Use the recovered audit notebook listed above instead.
+commit or redistribute it. The primary sensitivity notebook reads this local workbook and the validated report
+exports; it does not write to either.
 
 ## Setup
 
@@ -53,15 +54,20 @@ workbook's SHA-256 hash is identical before and after running.
 
 ## Phase 1 sensitivity analysis
 
-Run the scenario calculations and regenerate the three supplier/category CSV exports with:
+The primary, self-contained analysis is `notebooks/02_sensitivity_analysis.ipynb`. Open it with the `.venv`
+kernel and run **Restart & Run All**. It recalculates the approved scenarios from the local workbook, checks
+the category/rank and top-181 movements, and compares all supplier-level results with the validated CSV exports
+and [`reports/sensitivity_analysis_report.md`](reports/sensitivity_analysis_report.md). It does not write files.
+
+To independently regenerate the three supplier/category CSV exports:
 
 ```bash
 .venv/bin/python run_analysis.py
 ```
 
 The script requires the local source workbook. It checks the original risk formula, scenario weights, score,
-category and rank integrity, and workbook hash. The recovered sensitivity notebook validates the existing CSVs
-and summarizes category, top-181, supplier-rank, and category-transition changes without rerunning calculations
+category and rank integrity, and workbook hash. The supplementary
+`notebooks/02_sensitivity_analysis_recovered.ipynb` validates the existing CSVs without recalculating scenarios
 or writing files.
 
 ## Key rules

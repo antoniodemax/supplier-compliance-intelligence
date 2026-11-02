@@ -11,7 +11,8 @@ findings, statistics or test results, and distinguish verified facts from assump
 - `data/Supplier_Compliance_Intelligence.xlsx` is **read-only**. Never write, rename, delete or re-save it.
 - Do not install packages, change system settings or use sudo without explicit approval.
 - Keep the project lean: pandas + openpyxl + Jupyter only. No frameworks, agents or extra dependencies.
-- Verify claims by running code (`notebooks/01_validation_and_kpis.ipynb`) before stating them.
+- Verify baseline claims with `notebooks/01_validation_and_kpis.ipynb` and sensitivity claims with
+  `notebooks/02_sensitivity_analysis.ipynb` before stating them.
 
 ## Environment
 
@@ -38,3 +39,5 @@ findings, statistics or test results, and distinguish verified facts from assump
 
 - `docs/data_validation_and_kpi_reconciliation.md` — plain-language results.
 - `docs/tableau_handoff.md` — data model, calculated fields, wording guardrails.
+- `notebooks/02_sensitivity_analysis.ipynb` — primary Phase 1 scenario calculations and export/report checks.
+- `reports/sensitivity_analysis_report.md` — verified scenario findings and limitations.

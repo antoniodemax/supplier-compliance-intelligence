@@ -127,3 +127,18 @@ None block the analysis. These are assumptions to confirm with the assignment br
 - "Eligible requests" is taken as every request row. The data has no separate eligibility field.
 - "Supplier response" counts any submission, including Incomplete and submitted Declines. That definition matches
   the reference value.
+
+## 9. Phase 1 risk sensitivity analysis
+
+The primary, executable scenario analysis is [`notebooks/02_sensitivity_analysis.ipynb`](../notebooks/02_sensitivity_analysis.ipynb).
+It recalculates the Original, Criticality Emphasis, and Information-Gap Emphasis scores for all 800 suppliers,
+then verifies categories, ranks, top-181 membership, category transitions, and supplier movement against the
+validated CSV exports and [`reports/sensitivity_analysis_report.md`](../reports/sensitivity_analysis_report.md).
+The notebook reads the source workbook and reports only; it does not write outputs. Run it with the project's
+`.venv` kernel and the local, read-only workbook.
+
+The scenario weights and score thresholds are management choices for an illustrative prioritisation model. The
+scenario results demonstrate how rankings respond to those choices; they do not establish a legal/regulatory
+rating or a uniquely correct intervention order. The supplementary
+[`notebooks/02_sensitivity_analysis_recovered.ipynb`](../notebooks/02_sensitivity_analysis_recovered.ipynb)
+provides a CSV-only audit that does not require opening the workbook.

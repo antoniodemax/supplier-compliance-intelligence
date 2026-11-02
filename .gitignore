@@ -36,8 +36,5 @@ Thumbs.db
 # for redistribution in this repository.
 /data/
 
-# Preserve but do not publish the malformed legacy notebook.
-/notebooks/02_sensitivity_analysis.ipynb
-
 # Empty nested repository metadata is not part of this project.
 /supplier-compliance-intelligence/
