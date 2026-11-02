@@ -19,7 +19,8 @@ supplier-compliance-intelligence/
 │   └── 02_sensitivity_analysis_recovered.ipynb   # supplementary CSV-only audit
 ├── docs/
 │   ├── data_validation_and_kpi_reconciliation.md  # plain-language results
-│   └── tableau_handoff.md                      # data model + calculated fields for Tableau
+│   ├── tableau_handoff.md                         # concise data model + calculated fields
+│   └── tableau_dashboard_blueprint.md             # Phase 2 dashboards + presentation outline
 ├── reports/                                    # validated Phase 1 outputs
 ├── CLAUDE.md                                   # project context for AI assistants
 ├── requirements.txt
@@ -77,3 +78,11 @@ or writing files.
 - Submission ≠ completion ≠ confirmed regulatory compliance.
 - The risk score is an *illustrative prioritisation model*, not a validated legal risk rating.
 - In Tableau, use **logical relationships**, not physical joins (see `docs/tableau_handoff.md`).
+
+## Phase 2 Tableau blueprint
+
+[`docs/tableau_dashboard_blueprint.md`](docs/tableau_dashboard_blueprint.md) is the implementation-ready plan
+for the Executive Overview, Compliance Gaps, and Supplier Prioritisation dashboards. It includes the verified
+data model and calculations, worksheet inventory, filter/action guidance, validation sequence, presentation
+narrative, and a three-slide outline. This document is a blueprint only; no Tableau workbook or final slides have
+been created.
